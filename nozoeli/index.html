@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="wasm_exec.js"></script>
+		<script>
+		const go = new Go();
+			WebAssembly.instantiateStreaming(fetch("test.wasm"), go.importObject).then((result) => {
+				go.run(result.instance);
+			});
+		</script>
+		<title>노조에리</title>
+	</head>
+	<body>
+		웹어셈블리 노조에리<br>
+	</body>
+</html>	
