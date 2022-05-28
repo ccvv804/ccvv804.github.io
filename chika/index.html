@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="wasm_exec.js"></script>
+		<script>
+		const go = new Go();
+			WebAssembly.instantiateStreaming(fetch("chika.wasm"), go.importObject).then((result) => {
+				go.run(result.instance);
+			});
+		</script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+		<title>치카</title>
+	</head>
+	<body>
+		웹어셈블리 치카<br>
+		옵션을 먼저 선택해주신 다음에 파일을 선택해주세요.<br>
+		프로그램이 작동하지 않는다면 새로고침 해주시면 됩니다.<br>
+		옵션 : <input type="text" id="doption" minlength="1" maxlength="1" list="ice-cream-flavors"/><br>
+		<datalist id="ice-cream-flavors">
+			<option value="0">
+			<option value="1">
+			<option value="2">
+			<option value="3">
+			<option value="5">
+		</datalist>		
+	</body>
+</html>	
