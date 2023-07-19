@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="wasm_exec.js"></script>
+		<script>
+		const go = new Go();
+			WebAssembly.instantiateStreaming(fetch("yosoro.wasm"), go.importObject).then((result) => {
+				go.run(result.instance);
+			});
+		</script>
+		<title>yosoro</title>
+	</head>
+	<body>
+		yosoro<br>
+		If the program doesn't work, just refresh it.<br>
+	</body>
+</html>	
